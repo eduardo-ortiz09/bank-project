@@ -16,7 +16,7 @@
 
 ## :dart: Description ##
 
-Bank App made with MongoDB, 
+Bank App made with MongoDB, Express, React and Node.js
 
 
 
