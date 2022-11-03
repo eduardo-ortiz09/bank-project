@@ -1,0 +1,21 @@
+{
+  "name": "bank-project-back",
+  "version": "1.0.0",
+  "description": "App for bank made with MERN",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "eduardo_ortiz09@hotmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.2.0",
+    "mongodb": "^4.11.0"
+  }
+}
