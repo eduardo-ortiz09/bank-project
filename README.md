@@ -4,7 +4,6 @@
   <a href="#dart-description">Description</a> &#xa0; | &#xa0; 
   <a href="#art-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#toolbox-installation">Installation</a> &#xa0; | &#xa0;
-  <a href="#joystickhow-to-play">How to Play</a> &#xa0; | &#xa0;
   <a href="#camera_flash-screenshots">Screenshots</a> &#xa0; | &#xa0;
   <a href="#memo-features">Features</a> &#xa0; | &#xa0;
   <a href="#briefcase-license">License</a> &#xa0; | &#xa0;
