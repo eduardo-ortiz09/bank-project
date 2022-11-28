@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import React from 'react';
+import ButtonLoginGoogle from '../components/ButtonLoginGoogle';
 import { 
   getAuth,
   onAuthStateChanged,
@@ -13,6 +14,17 @@ function Login() {
   const [password, setPassword] = React.useState('');
   const [status, setStatus] = React.useState('');
   const auth = getAuth(conf)
+
+  React.useEffect(() => {
+    const auth = getAuth(conf)
+    onAuthStateChanged(auth, user => {
+      if(user){
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    })
+  }, []);
 
   function validate(field, label) {
     if (!field) {
@@ -34,13 +46,6 @@ function Login() {
       });
   }
 
-  onAuthStateChanged(auth, user => {
-    if(user){
-      setShow(true)
-    } else {
-      setShow(false)
-    }
-  })
 
   return (
     <div className="container d-flex justify-content-center align-items-center mt-5">
@@ -75,6 +80,7 @@ function Login() {
                   className="btn btn-light m-1"
                   onClick={handleCheck}
                 >Login</button>
+                <ButtonLoginGoogle/>
               </>
             ):(
               <>

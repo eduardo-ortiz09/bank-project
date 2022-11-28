@@ -2,8 +2,7 @@
 
 # dependencies
 /node_modules
-/bank-project-back/node_modules
-/bank-project-front/node_modules
+/public/node_modules
 /.pnp
 .pnp.js
 
@@ -11,8 +10,7 @@
 /coverage
 
 # production
-/bank-project-front/build
-/bank-project-back/public
+/public/build
 
 # misc
 .DS_Store
@@ -26,8 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 #Keys
-/bank-project-back/key.json
-/bank-project-back/admin.js
-/bank-project-front/src/conf-firebase.js
+key.json
+admin.js
+/public/src/conf-firebase.js
 
 

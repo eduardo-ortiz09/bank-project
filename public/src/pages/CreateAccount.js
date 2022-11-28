@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 import FormCreateAccount from '../components/FormCreateAccount';
 
+import ButtonLoginGoogle from '../components/ButtonLoginGoogle';
 import { 
   getAuth,
   createUserWithEmailAndPassword
@@ -47,23 +48,19 @@ function CreateAccount() {
 
     console.log(name, email, password);
     const url = `/account/create/${name}/${email}/${password}`;
-    (async () => {
-      let res = await fetch(url, { method: 'POST' });
-      let data = await res.json();
-      console.log(data)
-    })().catch((e) => console.error(e));
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => setShow(false))
+      .then(() => {
+        (async () => {
+          let res = await fetch(url, { method: 'POST' });
+          let data = await res.json();
+          console.log(data)
+        })()
+          .then(() => window.location.href = '/')
+          .catch((e) => console.error(e));
+      })
       .catch(e => setStatus(e.error))
   }
 
-  function clearForm() {
-    setName('');
-    setEmail('');
-    setPassword('');
-    setStatus('');
-    setShow(true);
-  }
   function checkInput() {
     let elements = document.getElementsByClassName('form-control');
     let value = elements.name.value + elements.email.value + elements.password.value;
@@ -102,26 +99,18 @@ function CreateAccount() {
         header="Create Account"
         status={status}
         body={
-          show ? 
-            (
-              <FormCreateAccount
-                handleCreate={handleCreate}
-                values={{name, email, password}}
-                setOnChange={setOnChange}
-                isValid={isValid}
-              />
-            ):(
-              <>
-                <h5>Success</h5>
-                <button
-                  type="submit"
-                  className="btn btn-light"
-                  onClick={clearForm}
-                >Add Another</button>
-              </>
-            )
+          <>
+            <FormCreateAccount
+              handleCreate={handleCreate}
+              values={{name, email, password}}
+              setOnChange={setOnChange}
+              isValid={isValid}
+            />
+            <ButtonLoginGoogle/>
+          </>
         }
       />
+
     </div>
   );
 }

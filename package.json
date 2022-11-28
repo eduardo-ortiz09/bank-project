@@ -1,6 +1,6 @@
 {
   "name": "bank-project-back",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "App for bank made with MERN",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,5 @@
 function ATMForm({ onChange, isDeposit, isValid}){
   const choice = ["Deposit", "Cash Back"];
-  console.log(`ATM isDeposit: ${isDeposit}`);
   return (
     <label>
       <h3> {choice[Number(!isDeposit)]}</h3>

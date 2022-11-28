@@ -23,7 +23,6 @@ function ATM({atmMode, isDeposit, email, balance}){
   }
 
   const handleChange = e => {
-    console.log(`handleChange ${e.target.value}`);
     deposit = Number(e.target.value);
 
     if(atmMode === "Cash Back" && deposit > totalState){
@@ -41,9 +40,8 @@ function ATM({atmMode, isDeposit, email, balance}){
     try {
       auth.currentUser.getIdToken()
         .then(idToken => {
-          console.log('idToken: ', idToken)
           const promise = async () => {
-            let response = await fetch(`/account/update/${email}/${newTotal}`, {
+            let response = await fetch(`/account/update/${email}/${newTotal}/${atmMode}`, {
               method: 'PUT',
               headers: {
                 'Authorization': idToken

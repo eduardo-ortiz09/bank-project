@@ -11,15 +11,17 @@ function Nav() {
   const [show, setShow] = React.useState(false);
   const body = document.querySelector('body');
   const wscreen = body.clientWidth >= 1024;
-  const auth = getAuth(conf)
 
-  onAuthStateChanged(auth, user => {
-    if(user){
-      setShow(true)
-    } else {
-      setShow(false)
-    }
-  })
+  React.useEffect(() => {
+    const auth = getAuth(conf)
+    onAuthStateChanged(auth, user => {
+      if(user){
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    })
+  }, []);
 
   function activeToggle(e){
     let id = e.currentTarget.id
@@ -61,12 +63,17 @@ function Nav() {
                 <li className="dropdown-item">Go Home</li>
               </ul>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" id="creaccnt" aria-current="page" to="/CreateAccount/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Create Account</Link>
-              <ul id="creaccnt-hover" className="dropdown-menu">
-                <li className="dropdown-item">Create a new Account</li>
-              </ul>
-            </li>
+            {
+              !show ? 
+                (
+                  <li className="nav-item">
+                    <Link className="nav-link" id="creaccnt" aria-current="page" to="/CreateAccount/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Create Account</Link>
+                    <ul id="creaccnt-hover" className="dropdown-menu">
+                      <li className="dropdown-item">Create a new Account</li>
+                    </ul>
+                  </li>
+                ):<></>
+            }
             <li className="nav-item">
               <Link className="nav-link" id="login" aria-current="page" to="/login/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Login</Link>
               <ul id="login-hover" className="dropdown-menu">

@@ -31,15 +31,17 @@ import './App.css';
 
 function App() {
   const [session, setSession] = React.useState(false)
-  const auth = getAuth(conf)
 
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      setSession(true)
-    } else {
-      setSession(false)
-    }
-  })
+  React.useEffect(() => {
+    const auth = getAuth(conf)
+    onAuthStateChanged(auth, user => {
+      if(user){
+        setSession(true);
+      } else {
+        setSession(false);
+      }
+    })
+  }, []);
 
   return (
     <BrowserRouter>
