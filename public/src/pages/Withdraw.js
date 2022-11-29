@@ -26,7 +26,6 @@ function Withdraw() {
           return data
         }
         promise().then( data => {
-          console.log(data);
           if (data.length > 0) {
             setStatus('');
             setData(data)

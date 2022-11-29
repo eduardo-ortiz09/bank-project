@@ -11,7 +11,6 @@ import {
 import conf from '../conf-firebase.js'
 
 function CreateAccount() {
-  const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState('');
   const [isValid, setIsValid] = React.useState(false);
   const [name, setName] = React.useState('');
@@ -58,7 +57,7 @@ function CreateAccount() {
           .then(() => window.location.href = '/')
           .catch((e) => console.error(e));
       })
-      .catch(e => setStatus(e.error))
+      .catch(e => setStatus(e.code))
   }
 
   function checkInput() {
@@ -93,23 +92,23 @@ function CreateAccount() {
   }
 
   return (
-    <div className="container d-flex justify-content-center align-items-center mt-5">
+    <div className="container d-flex flex-column align-items-center mt-5">
       <Card
         bgcolor="primary"
         header="Create Account"
         status={status}
         body={
-          <>
-            <FormCreateAccount
-              handleCreate={handleCreate}
-              values={{name, email, password}}
-              setOnChange={setOnChange}
-              isValid={isValid}
-            />
-            <ButtonLoginGoogle/>
-          </>
+          <FormCreateAccount
+            handleCreate={handleCreate}
+            values={{name, email, password}}
+            setOnChange={setOnChange}
+            isValid={isValid}
+          />
         }
       />
+      <div className='d-flex justify-content-center'>
+        <ButtonLoginGoogle/>
+      </div>
 
     </div>
   );

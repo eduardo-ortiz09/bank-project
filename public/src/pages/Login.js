@@ -42,7 +42,7 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then()
       .catch((error) => {
-        setStatus(error.message)
+        setStatus(error.code)
       });
   }
 

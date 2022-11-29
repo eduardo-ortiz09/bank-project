@@ -22,12 +22,19 @@ function AllData() {
                 'Authorization': idToken
               }
             })
-            let data = await response.json()
-            return data
+            try { 
+              let data = await response.json()
+              console.log(data)
+              return data
+
+            } catch (e) {
+              console.log(e)
+            }
           }
           promise().then( data => {
             setData(data);
-          })
+          }).catch(e => console.error(e))
+
         })
     }catch(e){
       console.error(e)
