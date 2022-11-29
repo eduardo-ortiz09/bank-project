@@ -33,7 +33,6 @@ Bank App made with MongoDB, Express, React and Node.js
 
 ### Server
 
-- [Create React App](https://create-react-app.dev/)
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
 - [Docker](https://www.docker.com/)
@@ -58,10 +57,21 @@ Clone Repository
 $ git clone https://github.com/eduardo-ortiz09/bank-project.git
 ```
 
+Go to directory of project
+
+```bash
+$ cd bank-project
+```
+Install the dependencies
+
+```bash
+$ npm install 
+```
+
 Go to directory for client
 
 ```bash
-$ cd bank-project-front
+$ cd public
 ```
 
 Install the dependencies
@@ -112,29 +122,10 @@ Create a project for production
 ```bash
 $ npm run build
 ```
-
-Rename "build" directory 
-
-```bash
-$ mv build public
-```
-
-Copy "public" directory in "bank-project-back"
+Go to directory of server
 
 ```bash
-$ cp -r public ../bank-project-back/public
-```
-
-Go to "bank-project-back" directory
-
-```bash
-$ cd ../../bank-project-back
-```
-
-Install the dependencies
-
-```bash
-$ npm install 
+$ cd ../../
 ```
 
 Create a key.json file
@@ -155,9 +146,7 @@ admin.initializeApp({
 module.exports = admin;
 
 ```
-Run the server
-
-In the "bank-project-back" run the comand
+Run the server in the root directory
 
 ```bash
 $ npm start
