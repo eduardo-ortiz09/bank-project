@@ -1,6 +1,6 @@
-const { MongoClient } = require('mongodb');
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://bankprojectdbuser:3RO0uXGnBzN29p8u@cluster0.v8bmseo.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })
 var db = null;
 
 
