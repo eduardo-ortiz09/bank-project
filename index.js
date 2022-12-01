@@ -9,7 +9,7 @@ const swaggerDocument = require('./swagger.json')
 
 const admin = require('./admin');
 
-const port = 4000;
+const port = 3001;
 
 // Used to serve static files from public directory
 
