@@ -1,16 +1,17 @@
 import React from 'react'
 import ATMForm from './ATMForm';
-
 import { getAuth } from 'firebase/auth';
-import conf from '../conf-firebase.js'
+import conf from '../../conf-firebase.js'
 
-function ATM({atmMode, isDeposit, email, balance}){
+function ATM({atmMode, isDeposit, email, balance}) {
+  const auth = getAuth(conf)
+  const user = auth.currentUser
+
   const [isValid, setIsValid] = React.useState(false);
   const [status, setStatus] = React.useState('');
   const [totalState, setTotalState] = React.useState(balance)
   let deposit = 0;
 
-  const auth = getAuth(conf)
 
   const checkNumber = () => {
     if(deposit <= 0) {
@@ -22,9 +23,8 @@ function ATM({atmMode, isDeposit, email, balance}){
     }
   }
 
-  const handleChange = e => {
+  function handleChange(e) {
     deposit = Number(e.target.value);
-
     if(atmMode === "Cash Back" && deposit > totalState){
       setIsValid(false);
       setStatus('Quantity Invalid');
@@ -32,13 +32,15 @@ function ATM({atmMode, isDeposit, email, balance}){
       setIsValid(checkNumber);
     }
   };
-  const handleSubmit = (e) => {
+
+  function handleSubmit(e) {
     e.preventDefault();
     if(!checkNumber()) return;
 
     let newTotal = isDeposit ? totalState + deposit : totalState - deposit;
+
     try {
-      auth.currentUser.getIdToken()
+      user.getIdToken()
         .then(idToken => {
           const promise = async () => {
             let response = await fetch(`/account/update/${email}/${newTotal}/${atmMode}`, {

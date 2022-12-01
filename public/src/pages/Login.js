@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 import React from 'react';
-import ButtonLoginGoogle from '../components/ButtonLoginGoogle';
+import ButtonLoginGoogle from '../components/Buttons/ButtonLoginGoogle';
 import { 
   getAuth,
   onAuthStateChanged,

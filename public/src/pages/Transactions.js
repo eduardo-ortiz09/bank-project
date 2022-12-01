@@ -1,10 +1,8 @@
 import React from 'react';
-import Card from '../components/Card';
-
 import {getAuth} from 'firebase/auth'
 import conf from '../conf-firebase.js'
 
-function AllData() {
+function Transactions() {
   const [data, setData] = React.useState(null);
 
 
@@ -24,7 +22,6 @@ function AllData() {
             })
             try { 
               let data = await response.json()
-              console.log(data)
               return data
 
             } catch (e) {
@@ -43,18 +40,18 @@ function AllData() {
 
   return (
     <div className="container d-flex flex-column align-items-center mt-5">
-      <h2 className='text-center'>Movements</h2>
+      <h2 className='text-center'>Transactions</h2>
       {
         data ?
           (
             data.length > 0 ? 
             (
-              <ul className='list-group'>
+              <ul className='list-group w-50'>
                 {
                   data.map((user, i) => {
                     return (
                       <li 
-                        className='list-group-item' 
+                        className='list-group-item list-group-item-warning' 
                         key={i}
                       >
                         <p>
@@ -62,7 +59,7 @@ function AllData() {
                           </span>{user.email}
                         </p>
                         <p>
-                          <span className='fw-bold'>type:
+                          <span className='fw-bold'>Type:
                           </span>{user.type}
                         </p>
                         <p>
@@ -81,5 +78,5 @@ function AllData() {
   );
 }
 
-export default AllData;
+export default Transactions;
 

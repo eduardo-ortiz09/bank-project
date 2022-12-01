@@ -20,7 +20,7 @@ import Nav from './components/Nav';
 //Pages
 import Home from './pages/Home';
 import CreateAccount from './pages/CreateAccount';
-import AllData from './pages/AllData';
+import Transactions from './pages/Transactions.js';
 import Login from './pages/Login';
 import Withdraw from './pages/Withdraw';
 import Deposit from './pages/Deposit';
@@ -54,8 +54,8 @@ function App() {
               <Routes>
                 <Route path="/" exact element={ <Home/> }/>
                 <Route path="/index.html" exact element={ <Home/> }/>
-                <Route path="/CreateAccount/" element={ <CreateAccount/> }/>
-                <Route path="/alldata/" element={ <AllData/> }/>
+                <Route path="/signin/" element={ <CreateAccount/> }/>
+                <Route path="/transactions/" element={ <Transactions/> }/>
                 <Route path="/login/" element={ <Login/> }/>
                 <Route path="/withdraw/" element={ <Withdraw/> }/>
                 <Route path="/deposit/" element={ <Deposit/> }/>
@@ -71,7 +71,7 @@ function App() {
                   <Route path="/" exact element={ <Home/> }/>
                   <Route path="/index.html" exact element={ <Home/> }/>
                   <Route path="/login/" element={ <Login/> }/>
-                  <Route path="/CreateAccount/" element={ <CreateAccount/> }/>
+                  <Route path="/signin/" element={ <CreateAccount/> }/>
                 </Routes>
               </div>
             )

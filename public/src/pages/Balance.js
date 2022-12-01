@@ -3,7 +3,7 @@ import Card from '../components/Card';
 
 import { getAuth } from 'firebase/auth';
 import conf from '../conf-firebase.js'
-import ButtonDeleteUser from '../components/ButtonDeleteUser';
+import ButtonDeleteUser from '../components/Buttons/ButtonDeleteUser';
 
 function Balance() {
   const [status, setStatus] = React.useState('');
@@ -44,8 +44,7 @@ function Balance() {
     <div className="container d-flex flex-column align-items-center mt-5">
       <ButtonDeleteUser/>
       <Card
-        bgcolor="warning"
-        txtcolor="black"
+        bgcolor="dark"
         header="Balance"
         status={status}
         body={

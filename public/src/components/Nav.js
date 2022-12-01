@@ -67,7 +67,7 @@ function Nav() {
               !show ? 
                 (
                   <li className="nav-item">
-                    <Link className="nav-link" id="creaccnt" aria-current="page" to="/CreateAccount/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Create Account</Link>
+                    <Link className="nav-link" id="creaccnt" aria-current="page" to="/signin/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Sign in</Link>
                     <ul id="creaccnt-hover" className="dropdown-menu">
                       <li className="dropdown-item">Create a new Account</li>
                     </ul>
@@ -85,9 +85,9 @@ function Nav() {
                 (
                   <>
                     <li className="nav-item">
-                      <Link className="nav-link" id="alldata" aria-current="page" to="/alldata/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>All Data</Link>
+                      <Link className="nav-link" id="alldata" aria-current="page" to="/transactions/" onClick={activeToggle} onMouseMove={hoverToggle} onMouseOut={hoverToggleOut}>Transactions</Link>
                       <ul id="alldata-hover" className="dropdown-menu">
-                        <li className="dropdown-item">Show All Data</li>
+                        <li className="dropdown-item">Show All Transactions</li>
                       </ul>
                     </li>
                     <li className="nav-item">

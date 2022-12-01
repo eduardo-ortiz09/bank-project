@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/Card';
-import ATM from '../components/ATM';
+import ATM from '../components/ATM/ATM';
 
 import { getAuth } from 'firebase/auth';
 import conf from '../conf-firebase.js'

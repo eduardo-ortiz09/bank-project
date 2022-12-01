@@ -3,7 +3,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider
 } from 'firebase/auth';
-import conf from '../conf-firebase';
+import conf from '../../conf-firebase';
 
 function ButtonLoginGoogle() {
   const auth = getAuth(conf)

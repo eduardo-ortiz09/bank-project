@@ -1,8 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
-import FormCreateAccount from '../components/FormCreateAccount';
-
-import ButtonLoginGoogle from '../components/ButtonLoginGoogle';
+import FormCreateAccount from '../components/Forms/FormCreateAccount';
+import ButtonLoginGoogle from '../components/Buttons/ButtonLoginGoogle';
 import { 
   getAuth,
   createUserWithEmailAndPassword
