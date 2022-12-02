@@ -3,19 +3,15 @@ const app = express();
 const cors = require('cors');
 const dal = require('./dal');
 const path = require('path')
-
 const swaggerUI = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
-
 const admin = require('./admin');
-
 const port = 3001;
 
 // Used to serve static files from public directory
 
 app.use(express.static('public/build'));
 app.use(cors());
-
 
 // Swagger
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))

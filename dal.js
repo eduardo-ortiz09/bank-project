@@ -15,8 +15,6 @@ async function main() {
 }
 
 // Users
-
-
 function all() {
   return new Promise((resolve, reject) => {
     const users = db
@@ -104,7 +102,7 @@ function deleteTransactions(email) {
   return new Promise((resolve, reject) => {
     const delTransaction = db
       .collection('transactions')
-      .deleteOne({email})
+      .deleteMany({email})
     delTransaction
       .then(() => {
         resolve()
